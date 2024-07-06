@@ -63,7 +63,21 @@ body {
     color: white;
 }
 
+#uploadButton:hover {
+    background: #218838;
+}
+
+#uploadButton:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
 #response {
     margin-top: 20px;
     color: green;
+}
+
+.loading {
+    margin-top: 20px;
+    color: blue;
 }

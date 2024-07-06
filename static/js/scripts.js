@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const uploadForm = document.getElementById('uploadForm');
     const responseElement = document.getElementById('response');
     const cancelButton = document.getElementById('cancelButton');
+    const uploadButton = document.getElementById('uploadButton');
 
     dropZone.addEventListener('dragover', (e) => {
         e.preventDefault();
@@ -30,6 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
             formData.append('file', file);
         }
 
+        uploadButton.disabled = true;
+        responseElement.textContent = '';
+        responseElement.classList.add('loading');
+        responseElement.textContent = 'Uploading...';
+
         try {
             const response = await fetch('/upload/', {
                 method: 'POST',
@@ -37,9 +43,15 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const result = await response.json();
+            responseElement.classList.remove('loading');
             responseElement.textContent = result.info;
+            responseElement.style.color = 'green';
         } catch (error) {
+            responseElement.classList.remove('loading');
             responseElement.textContent = 'Erro ao enviar o arquivo: ' + error.message;
+            responseElement.style.color = 'red';
+        } finally {
+            uploadButton.disabled = false;
         }
     });
 
