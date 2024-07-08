@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const responseElement = document.getElementById('response');
     const cancelButton = document.getElementById('cancelButton');
     const uploadButton = document.getElementById('uploadButton');
+    const manageUploadsButton = document.getElementById('manageUploadsButton');
 
     dropZone.addEventListener('dragover', (e) => {
         e.preventDefault();
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             responseElement.classList.remove('loading');
             responseElement.textContent = result.info;
             responseElement.style.color = 'green';
+            location.reload(); // Recarregar a página para atualizar a lista de arquivos
         } catch (error) {
             responseElement.classList.remove('loading');
             responseElement.textContent = 'Erro ao enviar o arquivo: ' + error.message;
@@ -59,5 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         fileInput.value = '';
         responseElement.textContent = '';
+    });
+
+    manageUploadsButton.addEventListener('click', () => {
+        window.location.href = '/manage-uploads';
     });
 });
