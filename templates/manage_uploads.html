@@ -12,7 +12,9 @@
         <div class="file-list" id="fileList">
             {% for file in files %}
                 <div class="file-item">
-                    <img src="/images/{{ file }}" alt="{{ file }}" class="uploaded-image">
+                    <a href="/images/{{ file }}" target="_blank">
+                        <img src="/images/{{ file }}" alt="{{ file }}" class="uploaded-image">
+                    </a>
                     <p>{{ file }}</p>
                     <button class="delete-button" data-filename="{{ file }}">Deletar</button>
                 </div>

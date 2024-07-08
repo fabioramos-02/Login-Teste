@@ -47,7 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
             responseElement.classList.remove('loading');
             responseElement.textContent = result.info;
             responseElement.style.color = 'green';
-            location.reload(); // Recarregar a página para atualizar a lista de arquivos
+            
+            // Adicionar atraso antes de recarregar a página
+            setTimeout(() => {
+                location.reload();
+            }, 2000); // 2 segundos de atraso
         } catch (error) {
             responseElement.classList.remove('loading');
             responseElement.textContent = 'Erro ao enviar o arquivo: ' + error.message;
