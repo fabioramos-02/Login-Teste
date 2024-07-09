@@ -1,0 +1,36 @@
+@import url('variables.css');
+.side-menu {
+    background-color: #222D32;
+    width:  --sidebar-width; /* Largura do menu lateral */
+    height: 100vh;
+    color: #B8C7CE;
+    padding-top: 20px;
+    font-size: 20px;
+    position: fixed; /* Fixar o menu lateral */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinhar itens ao topo */
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    padding: 10px;
+    text-align: left; /* Alinhar o texto à esquerda */
+    margin-left: 40px;
+}
+
+.side-menu ul li a {
+    color: #B8C7CE;
+    text-decoration: none;
+    display: block; /* Fazer com que o link ocupe toda a largura do item */
+}
+
+.side-menu ul li a:hover {
+    background-color: #1A252F;
+}

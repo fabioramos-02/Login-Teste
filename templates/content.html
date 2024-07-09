@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+    <h2>Trocar Senha de Acesso ao Sistema</h2>
+    <form>
+        <div>
+            <input type="password" placeholder="Informe a senha antiga">
+        </div>
+        <div>
+            <input type="password" placeholder="Informe a nova senha">
+        </div>
+        <div>
+            <input type="password" placeholder="Confirme a nova senha">
+        </div>
+        <div>
+            <button type="submit">OK</button>
+            <button type="button" onclick="history.back()">Voltar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
