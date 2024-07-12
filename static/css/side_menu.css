@@ -1,17 +1,24 @@
 @import url('variables.css');
 .side-menu {
     background-color: #222D32;
-    width:  --sidebar-width; /* Largura do menu lateral */
+    width:  340px; /* Largura do menu lateral */
     height: 100vh;
     color: #B8C7CE;
-    padding-top: 20px;
     font-size: 20px;
+    margin-top: 30px;
     position: fixed; /* Fixar o menu lateral */
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinhar itens ao topo */
+    justify-content: space-between; /* Espaçar itens para o topo e o fundo */
+}
+
+.menu-header img {
+    display: block;
+    margin: 20px auto;
+    width: 50px;
+    height: 50px;
 }
 
 .side-menu ul {
@@ -20,17 +27,31 @@
 }
 
 .side-menu ul li {
-    padding: 10px;
+    padding: 20px;
     text-align: left; /* Alinhar o texto à esquerda */
-    margin-left: 40px;
+    padding-left: 40px;
 }
 
 .side-menu ul li a {
     color: #B8C7CE;
     text-decoration: none;
-    display: block; /* Fazer com que o link ocupe toda a largura do item */
+    padding-left: 20px;
 }
 
-.side-menu ul li a:hover {
+.side-menu ul li:hover {
     background-color: #1A252F;
+}
+
+.menu-footer img {
+    display: block;
+    margin: 20px auto;
+    width: 220px; /* Ajuste conforme necessário */
+    height: 337px;
+}
+.side-menu li {
+    display: flex;
+    align-items: center;
+}
+.side-menu li div {
+    align-items: center;
 }

@@ -5,11 +5,6 @@ body {
     background-color: #D2D6DE;
     margin: 0;
 }
-
-
-
-
-
 .user-info {
     margin-right: 20px;
 }
@@ -19,101 +14,24 @@ body {
     padding-top: 50px; /* Espaço para o menu superior */
     margin-left: var(--sidebar-width); /* Espaço para o menu lateral fixo */
 }
-
 .content {
-    padding: 20px;
-    flex-grow: 1;
-}
+    width: 100%;
 
-.login-container {
-    background: white;
-    padding: 40px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 451px;
-    height: 558px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    margin: auto;
-}
-
-.login-header img {
-    width: 114px;
-    height: 174px;
-    margin: 0 auto 20px auto;
-}
-
-.login-header h2 {
-    margin: 0;
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #666666;
-}
-
-.input-group {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.input-group input {
-    width: 400px;
-    height: 40px;
-    padding: 10px 10px 10px 40px;
-    border: 1px solid #D2D6DE;
-    border-radius: 4px;
-    font-size: 20px;
-    color: #777777;
-    background-color: #fff;
-}
-
-.input-group .icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #777777;
-    font-size: 20px;
-}
-
-.login-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #3C8DBC;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.login-button:hover {
-    background-color: #357ABD;
-}
-
-.error {
-    color: white;
-    font-size: 14px;
-    margin-bottom: 20px;
-    background: #dc3545;
-    height: 40px;
+    height: 100vh; /* Altura total da viewport */
     text-align: center;
+}
+
+.logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
+    height: 100%;
 }
-
-.forgot-password {
-    display: block;
-    margin-top: 20px;
-    font-size: 16px;
-    color: #3C8DBC;
-    text-decoration: none;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
+.logo {
+    width: 418.34px; /* Largura da logo */
+    height: 528.82px; /* Altura da logo */
 }
