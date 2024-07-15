@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Soccer Swag{% endblock %}</title>
-    <link
-      rel="icon"
-      href="/static/images/LOGO branca.svg"
-      sizes="64x64"
-    />
+    <link rel="icon" href="/static/images/LOGO branca.svg" sizes="64x64" />
 
     <link rel="stylesheet" href="../static/css/login.css?v=1.1" />
     <link rel="stylesheet" href="/static/css/variables.css?v=1.1" />
@@ -46,6 +42,7 @@
     style="height: auto"
   >
     <div class="wrapper"></div>
+   
     {% include "top_menu.html" %} {% include "sidebar.html" %}
     <div class="container">
       <main class="content">{% block content %}{% endblock %}</main>
