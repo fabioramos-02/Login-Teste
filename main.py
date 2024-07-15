@@ -1,3 +1,4 @@
+# main.py
 from fastapi import FastAPI, Form, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -44,22 +45,19 @@ async def content(request: Request):
 async def register(request: Request, username: str = Form(...), password: str = Form(...)):
     existing_user = get_user_by_username(username)
     if existing_user:
-        return templates.TemplateResponse("login.html", {"request": request, "error": "Usuário já existe."})
+        return templates.TemplateResponse("content.html", {"request": request, "error": "Usuário já existe."})
     create_user(username, password)
-    return RedirectResponse(url="/", status_code=302)
-
-@app.post("/api/register")
-async def api_register(username: str = Form(...), password: str = Form(...)):
-    existing_user = get_user_by_username(username)
-    if existing_user:
-        raise HTTPException(status_code=400, detail="Usuário já existe.")
-    create_user(username, password)
-    return {"message": "Usuário criado com sucesso"}
+    return RedirectResponse(url="/content", status_code=302)
 
 @app.get("/api/users")
 async def list_users():
     users = get_all_users()
     return {"users": users}
+
+@app.get("/users", response_class=HTMLResponse)
+async def read_users(request: Request):
+    return templates.TemplateResponse("users.html", {"request": request})
+
 
 if __name__ == "__main__":
     import uvicorn
