@@ -1,2 +1,7 @@
+from crud import get_user_by_username
+
 def authenticate_user(username: str, password: str) -> bool:
-    return username == "admin" and password == "123"
+    user = get_user_by_username(username)
+    if user and user['password'] == password:
+        return True
+    return False
