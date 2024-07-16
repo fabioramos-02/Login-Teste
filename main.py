@@ -41,23 +41,23 @@ async def logout(request: Request):
 async def content(request: Request):
     return templates.TemplateResponse("content.html", {"request": request})
 
+@app.get("/users", response_class=HTMLResponse)
+async def read_users(request: Request):
+    users = get_all_users()
+    return templates.TemplateResponse("users.html", {"request": request, "users": users})
+
 @app.post("/register", response_class=HTMLResponse)
 async def register(request: Request, username: str = Form(...), password: str = Form(...)):
     existing_user = get_user_by_username(username)
     if existing_user:
-        return templates.TemplateResponse("content.html", {"request": request, "error": "Usuário já existe."})
+        return templates.TemplateResponse("users.html", {"request": request, "error": "Usuário já existe."})
     create_user(username, password)
-    return RedirectResponse(url="/content", status_code=302)
+    return RedirectResponse(url="/users", status_code=302)
 
 @app.get("/api/users")
 async def list_users():
     users = get_all_users()
     return {"users": users}
-
-@app.get("/users", response_class=HTMLResponse)
-async def read_users(request: Request):
-    return templates.TemplateResponse("users.html", {"request": request})
-
 
 if __name__ == "__main__":
     import uvicorn

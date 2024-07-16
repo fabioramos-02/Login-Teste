@@ -1,43 +1,100 @@
 <!-- content.html -->
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
-<div class="content">
-    <div class="logo-container">
-        <img src="/static/images/logo.svg" alt="Soccer Swag" class="logo"/>
+<div class="content-wrapper px-4 py-2" style="min-height: 621.4px">
+  <div class="content-header">
+    <h1>Introduction</h1>
+  </div>
+  <div class="content px-2">
+    <h2 id="quick-start">Quick start</h2>
+    <p>There are multiple ways to install AdminLTE.</p>
+    <h3 id="download--changelog">Download &amp; Changelog:</h3>
+    <p>
+      Always Recommended to download from GitHub latest release
+      <a href="https://github.com/ColorlibHQ/AdminLTE/releases/latest"
+        >AdminLTE 3</a
+      >
+      for bug free and latest features.<br />
+      Visit the
+      <a href="https://github.com/ColorlibHQ/AdminLTE/releases">releases</a>
+      page to view the changelog.<br />
+      Legacy Releases are
+      <a href="https://github.com/ColorlibHQ/AdminLTE/releases/tag/v2.4.18"
+        >AdminLTE 2</a
+      >
+      /
+      <a href="https://github.com/ColorlibHQ/AdminLTE/releases/tag/1.3.1"
+        >AdminLTE 1</a
+      >.
+    </p>
+    <h2 id="stable-release">Stable release</h2>
+    <h3 id="grab-from-jsdelivr-cdn">
+      Grab from
+      <a href="https://www.jsdelivr.com/package/npm/admin-lte">jsdelivr</a> CDN:
+    </h3>
+    <p>
+      <em
+        ><strong>Important Note</strong>: You needed to add separately cdn links
+        for plugins in your project.</em
+      >
+    </p>
+    <div class="language-html highlighter-rouge">
+      <div class="highlight">
+        <pre
+          class="highlight"
+        ><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    </code></pre>
+      </div>
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal">
-        Incluir Usuário
-    </button>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Incluir Usuário</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" action="/register">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="username">Nome de Usuário</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Senha</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Incluir</button>
-                </div>
-            </form>
-        </div>
+    <div class="language-html highlighter-rouge">
+      <div class="highlight">
+        <pre
+          class="highlight"
+        ><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css"</span><span class="nt">&gt;</span>
+    </code></pre>
+      </div>
     </div>
+    <h3 id="using-the-command-line">Using The Command Line:</h3>
+    <p>
+      <em
+        ><strong>Important Note</strong>: To install it via npm/Yarn, you need
+        at least Node.js 14 or higher.</em
+      >
+    </p>
+    <h4 id="via-npm">Via npm</h4>
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <pre
+          class="highlight"
+        ><code>npm <span class="nb">install </span>admin-lte@^3.2 <span class="nt">--save</span>
+    </code></pre>
+      </div>
+    </div>
+    <h4 id="via-yarn">Via Yarn</h4>
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <pre class="highlight"><code>yarn add admin-lte@^3.2
+    </code></pre>
+      </div>
+    </div>
+    <h4 id="via-composer">Via Composer</h4>
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <pre
+          class="highlight"
+        ><code>composer require <span class="s2">"almasaeed2010/adminlte=~3.2"</span>
+    </code></pre>
+      </div>
+    </div>
+    <h4 id="via-git">Via Git</h4>
+    <div class="language-bash highlighter-rouge">
+      <div class="highlight">
+        <pre
+          class="highlight"
+        ><code>git clone https://github.com/ColorlibHQ/AdminLTE.git
+    </code></pre>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -1,43 +1,517 @@
-<!-- content.html -->
-{% extends "base.html" %}
+{% extends "base.html" %} {% block users %}
 
-{% block content %}
-<div class="content">
-    <div class="logo-container">
-        <img src="/static/images/logo.svg" alt="Soccer Swag" class="logo"/>
+<div class="content-wrapper" style="min-height: 768px">
+  <!-- Content -->
+  <!-- Page Header -->
+
+  <section class="container-fluid hidden-print">
+    <div class="row">
+      <h3 class="col-xs-12 col-md-6">Início</h3>
+
+      <ol
+        id="olAlterar"
+        class="col-xs-12 col-md-6 breadcrumb_temp text-right hidden-xs"
+      >
+        <li>
+          <a href="/academico"><i class="fa fa-home"></i> Início</a>
+        </li>
+        <li class="active">Painel</li>
+        <li class="help text-danger">
+          <a
+            href="#ajuda_home"
+            title="Ajuda"
+            role="button"
+            data-toggle="modal"
+            data-target="#ajuda_home"
+            ><i class="fa fa-question-circle"></i> Ajuda</a
+          >
+        </li>
+      </ol>
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal">
-        Incluir Usuário
-    </button>
+    <div class="row">
+      <div class="alerts"></div>
+    </div>
+  </section>
+
+  <div class="row hidden-print">
+    <div class="col-xs-12 v-space-2 hidden-md hidden-lg"></div>
+  </div>
+
+  <style>
+    .breadcrumb_temp {
+      padding: 8px 15px;
+      margin-bottom: 20px;
+      list-style: none;
+      border-radius: 4px;
+    }
+    .breadcrumb_temp > li {
+      display: inline-block;
+    }
+    .breadcrumb_temp > li + li:before {
+      padding: 0 5px;
+      color: #ccc;
+      content: "/\00a0";
+    }
+    .breadcrumb_temp > .active {
+      color: #777;
+    }
+
+    .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+      height: 100px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-primary {
+      color: #fff;
+    }
+  </style>
+
+  <script>
+    jQuery(document).ready(function () {
+      $(".breadcrumb").css({ "background-color": "" });
+
+      $("#olAlterar").css({ "background-color": "", opacity: "" });
+    });
+  </script>
+  <section class="content container-fluid">
+    <!-- Main content -->
+
+    <!-- Alertas -->
+    <!--div class="alert alert-info">
+<strong><p>Bem-vindo(a) ao Sistema Acadêmico,</p>
+<p style="color:black;">Hoje é 16 de julho de 2024 e a previsão é de chuva
+<img src="/img/rain-icon.png" style="height:20px" alt=""/>!</p>
+<p style="color:black;">Seu último acesso foi em 15 de julho de 2024.</p>
+</strong>
+</div-->
+
+    <div class="row">
+      <section class="col-lg-6">
+        <div class="info-box bg-green" title="Percentual C.H. Cumprido: 41,56%">
+          <span class="info-box-icon"><i class="fa fa-clock-o"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Percentual C.H. Cumprido</span>
+            <span class="info-box-number"> 41,56% </span>
+            <div class="progress">
+              <div class="progress-bar" style="width: 41.56%"></div>
+            </div>
+            <span class="progress-description"> </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+      </section>
+      <section class="col-lg-6">
+        <div class="info-box bg-red" title="Disciplinas Cumpridas: 16">
+          <span class="info-box-icon"><i class="fa fa-book"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Disciplinas Cumpridas</span>
+            <span class="info-box-number"> 16 </span>
+            <div class="progress">
+              <div class="progress-bar" style="width: 10.191082802548%"></div>
+            </div>
+            <span class="progress-description"> </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+      </section>
+    </div>
+    <div class="row">
+      <section class="col-lg-6">
+        <div
+          class="info-box bg-yellow"
+          title="MGA (Média Geral Acadêmica): 7,84"
+        >
+          <span class="info-box-icon"><i class="fa fa-bar-chart"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">MGA</span>
+            <span class="info-box-number"> 7,84 </span>
+            <div class="progress">
+              <div class="progress-bar" style="width: 78.4%"></div>
+            </div>
+            <span class="progress-description"> Média Geral Acadêmica </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+      </section>
+      <section class="col-lg-6">
+        <div
+          class="info-box bg-aqua"
+          title="CRA (Coeficiente de Rendimento Acadêmico, sem contar reprovações): 7,84"
+        >
+          <span class="info-box-icon"><i class="fa fa-line-chart"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">CRA</span>
+            <span class="info-box-number"> 7,84 </span>
+            <div class="progress">
+              <div class="progress-bar" style="width: 78.4%"></div>
+            </div>
+            <span class="progress-description">
+              Coeficiente de Rendimento Acadêmico, sem contar reprovações
+            </span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Main row -->
+    <div class="row">
+      <section class="col-lg-12">
+        <div class="box box-info">
+          <div
+            data-widget="collapse"
+            class="box-header cursor-pointer bg-light-gray with-border"
+          >
+            <i
+              class="fa fa-expand"
+              style="visibility: hidden; display: none"
+            ></i>
+            <h3 class="box-title color-gray">
+              <i class="fa fa-bars"></i> Última matrícula : Primeiro Período
+              Letivo 2024
+            </h3>
+            <div class="box-tools pull-right">
+              <button class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="table-responsive">
+              <table class="table table-condensed color-gray cs-pad-1 md-pad-0">
+                <thead>
+                  <tr class="row">
+                    <th class="hidden-xs col-sm-2">Código da Disciplina</th>
+                    <th class="col-xs-4">Nome da Disciplina</th>
+                    <th class="col-xs-1">Turma</th>
+                    <th class="col-xs-2">Tipo de Vaga</th>
+                    <th class="col-xs-1">Situação</th>
+                    <th class="col-xs-1">C.H.</th>
+                    <th class="col-xs-1">Opções</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="row">
+                    <td class="hidden-xs col-sm-2">
+                      <a href="/academico/disciplinas/281281">1919.000.280-9</a>
+                    </td>
+                    <td>
+                      <a href="/academico/disciplinas/281281"
+                        >Análise e Projeto de Software Orientado a Objetos</a
+                      >
+                    </td>
+                    <td>
+                      <span>P01</span>
+                    </td>
+                    <td>
+                      <span> Geral </span>
+                    </td>
+                    <td>
+                      <span
+                        class="cursor-help"
+                        data-toggle="tooltip"
+                        title="Aprovado"
+                      >
+                        AP
+                      </span>
+                    </td>
+                    <td>
+                      <span>68h</span>
+                    </td>
+                    <td class="col-xs-4 col-sm-2 col-md-1">
+                      <a
+                        href="/academico/disciplinas/281281#avaliacoes"
+                        data-toggle="tooltip"
+                        title="Avaliações"
+                        class="color-green"
+                        ><i class="fa fa-bar-chart" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281281#frequencias"
+                        data-toggle="tooltip"
+                        title="Frequências"
+                        class="color-red"
+                        ><i class="fa fa-check-square-o" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281281#planos"
+                        data-toggle="tooltip"
+                        title="Plano de Ensino"
+                        class="color-blue"
+                        ><i class="fa fa-book" large="1"></i
+                      ></a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="hidden-xs col-sm-2">
+                      <a href="/academico/disciplinas/281309">1919.000.411-8</a>
+                    </td>
+                    <td>
+                      <a href="/academico/disciplinas/281309"
+                        >Engenharia de Requisitos</a
+                      >
+                    </td>
+                    <td>
+                      <span>T01</span>
+                    </td>
+                    <td>
+                      <span> Geral </span>
+                    </td>
+                    <td>
+                      <span
+                        class="cursor-help"
+                        data-toggle="tooltip"
+                        title="Aprovado"
+                      >
+                        AP
+                      </span>
+                    </td>
+                    <td>
+                      <span>68h</span>
+                    </td>
+                    <td class="col-xs-4 col-sm-2 col-md-1">
+                      <a
+                        href="/academico/disciplinas/281309#avaliacoes"
+                        data-toggle="tooltip"
+                        title="Avaliações"
+                        class="color-green"
+                        ><i class="fa fa-bar-chart" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281309#frequencias"
+                        data-toggle="tooltip"
+                        title="Frequências"
+                        class="color-red"
+                        ><i class="fa fa-check-square-o" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281309#planos"
+                        data-toggle="tooltip"
+                        title="Plano de Ensino"
+                        class="color-blue"
+                        ><i class="fa fa-book" large="1"></i
+                      ></a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="hidden-xs col-sm-2">
+                      <a href="/academico/disciplinas/281325">1919.000.416-3</a>
+                    </td>
+                    <td>
+                      <a href="/academico/disciplinas/281325"
+                        >Estruturas de Dados</a
+                      >
+                    </td>
+                    <td>
+                      <span>P03</span>
+                    </td>
+                    <td>
+                      <span> Geral </span>
+                    </td>
+                    <td>
+                      <span
+                        class="cursor-help"
+                        data-toggle="tooltip"
+                        title="Aprovado"
+                      >
+                        AP
+                      </span>
+                    </td>
+                    <td>
+                      <span>68h</span>
+                    </td>
+                    <td class="col-xs-4 col-sm-2 col-md-1">
+                      <a
+                        href="/academico/disciplinas/281325#avaliacoes"
+                        data-toggle="tooltip"
+                        title="Avaliações"
+                        class="color-green"
+                        ><i class="fa fa-bar-chart" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281325#frequencias"
+                        data-toggle="tooltip"
+                        title="Frequências"
+                        class="color-red"
+                        ><i class="fa fa-check-square-o" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281325#planos"
+                        data-toggle="tooltip"
+                        title="Plano de Ensino"
+                        class="color-blue"
+                        ><i class="fa fa-book" large="1"></i
+                      ></a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="hidden-xs col-sm-2">
+                      <a href="/academico/disciplinas/281346">1919.000.339-2</a>
+                    </td>
+                    <td>
+                      <a href="/academico/disciplinas/281346"
+                        >Gerência de Projetos</a
+                      >
+                    </td>
+                    <td>
+                      <span>T01</span>
+                    </td>
+                    <td>
+                      <span> Geral </span>
+                    </td>
+                    <td>
+                      <span
+                        class="cursor-help"
+                        data-toggle="tooltip"
+                        title="Aprovado"
+                      >
+                        AP
+                      </span>
+                    </td>
+                    <td>
+                      <span>68h</span>
+                    </td>
+                    <td class="col-xs-4 col-sm-2 col-md-1">
+                      <a
+                        href="/academico/disciplinas/281346#avaliacoes"
+                        data-toggle="tooltip"
+                        title="Avaliações"
+                        class="color-green"
+                        ><i class="fa fa-bar-chart" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281346#frequencias"
+                        data-toggle="tooltip"
+                        title="Frequências"
+                        class="color-red"
+                        ><i class="fa fa-check-square-o" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281346#planos"
+                        data-toggle="tooltip"
+                        title="Plano de Ensino"
+                        class="color-blue"
+                        ><i class="fa fa-book" large="1"></i
+                      ></a>
+                    </td>
+                  </tr>
+                  <tr class="row">
+                    <td class="hidden-xs col-sm-2">
+                      <a href="/academico/disciplinas/281238">1919.000.406-5</a>
+                    </td>
+                    <td>
+                      <a href="/academico/disciplinas/281238"
+                        >Organização de Computadores</a
+                      >
+                    </td>
+                    <td>
+                      <span>T01</span>
+                    </td>
+                    <td>
+                      <span> Geral </span>
+                    </td>
+                    <td>
+                      <span
+                        class="cursor-help"
+                        data-toggle="tooltip"
+                        title="Aprovado"
+                      >
+                        AP
+                      </span>
+                    </td>
+                    <td>
+                      <span>68h</span>
+                    </td>
+                    <td class="col-xs-4 col-sm-2 col-md-1">
+                      <a
+                        href="/academico/disciplinas/281238#avaliacoes"
+                        data-toggle="tooltip"
+                        title="Avaliações"
+                        class="color-green"
+                        ><i class="fa fa-bar-chart" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281238#frequencias"
+                        data-toggle="tooltip"
+                        title="Frequências"
+                        class="color-red"
+                        ><i class="fa fa-check-square-o" large="1"></i
+                      ></a>
+                      <a
+                        href="/academico/disciplinas/281238#planos"
+                        data-toggle="tooltip"
+                        title="Plano de Ensino"
+                        class="color-blue"
+                        ><i class="fa fa-book" large="1"></i
+                      ></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- right col -->
+    </div>
+    <!-- /.row (main row) -->
+  </section>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addUserModalLabel">Incluir Usuário</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" action="/register">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="username">Nome de Usuário</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Senha</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Incluir</button>
-                </div>
-            </form>
+<div
+  class="modal fade"
+  id="addUserModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="addUserModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserModalLabel">Incluir Usuário</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post" action="/register">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="username">Nome de Usuário</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Fechar
+          </button>
+          <button type="submit" class="btn btn-primary">Incluir</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 {% endblock %}
